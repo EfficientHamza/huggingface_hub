@@ -92,6 +92,7 @@ from huggingface_hub.inference._generated.types import (
     TextGenerationInputGrammarType,
     TextGenerationOutput,
     TextGenerationStreamOutput,
+    TextToImageTargetSize,
     TextToSpeechEarlyStoppingEnum,
     TokenClassificationAggregationStrategy,
     TokenClassificationOutputElement,
@@ -2403,6 +2404,7 @@ class InferenceClient:
         scheduler: Optional[str] = None,
         seed: Optional[int] = None,
         extra_body: Optional[Dict[str, Any]] = None,
+        target_size: Optional[TextToImageTargetSize] = None,
     ) -> "Image":
         """
         Generate an image based on a given text using a specified model.
@@ -2443,6 +2445,8 @@ class InferenceClient:
             extra_body (`Dict[str, Any]`, *optional*):
                 Additional provider-specific parameters to pass to the model. Refer to the provider's documentation
                 for supported parameters.
+            target_size (`TextToImageTargetSize`, *optional*):
+                The size in pixel of the output image
 
         Returns:
             `Image`: The generated image.
